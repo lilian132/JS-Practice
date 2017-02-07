@@ -281,8 +281,9 @@ function log(){
 ### promise红绿灯问题
 
 //红灯三秒亮一次，绿灯一秒亮一次，黄灯两秒亮一次，如何让三个灯不断交替重复亮
-function red(){
 
+```
+function red(){
 	console.log('red')
 }
 
@@ -294,7 +295,11 @@ function yellow(){
 	console.log('yellow')
 }
 
-/*----事件队列实现----*/
+```
+
+事件队列实现
+
+```
 var event = {
 	tasks : [],
 	push : function(fn){
@@ -326,9 +331,11 @@ function show(){
 		show()
 	}).go()
 }
+```
 
-/*----promise实现----*/
-//生成promise
+promise实现
+
+```
 function doPromise(fn,time){
 	return new Promise(function(resolve,reject){
 		setTimeout(function(){
@@ -347,4 +354,5 @@ function show(){
 		show()
 	})
 }
+```
 
