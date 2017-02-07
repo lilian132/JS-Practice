@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>lazyMan</title>    
+  </head>
+  <body>
+
+<script type="text/javascript">
+function red(){
+	console.log('red')
+}
+
+function green(){
+	console.log('green')
+}
+
+function yellow(){
+	console.log('yellow')
+}
+
+//生成promise
+function doPromise(fn,time){
+	return new Promise(function(resolve,reject){
+		setTimeout(function(){
+			fn()
+			resolve()
+		},time)	
+	})
+}
+
+//延时执行fn
+function sleep(fn,time){
+	setTimeout(function(){
+		fn()
+		event.go()
+	},time)
+}
+
+
+function show(){
+	doPromise(red,3000).then(function(){
+		return doPromise(green,2000)
+	}).then(function(){
+		return doPromise(yellow,1000)
+	}).then(function(){
+		show()
+	})
+}
+
+show()
+</script>
+
+  </body>
+</html>
